@@ -64,6 +64,9 @@
                         <viewLayoutGuide key="safeArea" id="cCE-ZL-TCj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="pk7-7D-rWv"/>
+                    <connections>
+                        <outlet property="tableView" destination="VFa-l1-qFW" id="6fG-tM-GGG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOk-Wb-I8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
