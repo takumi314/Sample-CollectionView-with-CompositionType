@@ -14,6 +14,7 @@
 		E1CDAB57202212E900F6E5BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB55202212E900F6E5BA /* LaunchScreen.storyboard */; };
 		E1CDAB62202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB61202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeTests.swift */; };
 		E1CDAB6D202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB6C202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeUITests.swift */; };
+		E1CDAB7B2022170100F6E5BA /* FirstCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E1CDAB68202212E900F6E5BA /* Sample-CollectionView-with-CompositionTypeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample-CollectionView-with-CompositionTypeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDAB6C202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_CollectionView_with_CompositionTypeUITests.swift; sourceTree = "<group>"; };
 		E1CDAB6E202212E900F6E5BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCollectionViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E1CDAB53202212E900F6E5BA /* Assets.xcassets */,
 				E1CDAB55202212E900F6E5BA /* LaunchScreen.storyboard */,
 				E1CDAB58202212E900F6E5BA /* Info.plist */,
+				E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */,
 			);
 			path = "Sample-CollectionView-with-CompositionType";
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */,
 				E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */,
+				E1CDAB7B2022170100F6E5BA /* FirstCollectionViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
