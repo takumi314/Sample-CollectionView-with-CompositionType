@@ -25,6 +25,10 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func render(_ items: [String]) {
+        dataSource.items = items
+        tableView.reloadData()
+    }
 
 }
 
