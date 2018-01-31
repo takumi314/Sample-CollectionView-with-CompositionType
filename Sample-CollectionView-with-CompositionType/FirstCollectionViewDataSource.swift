@@ -6,4 +6,24 @@
 //  Copyright © 2018年 Kohey.Nishioka. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class FirstCollectionViewDataSource: NSObject, UICollectionViewDataSource {
+
+    var items = [String]()
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+
+        return cell
+    }
+
+}
