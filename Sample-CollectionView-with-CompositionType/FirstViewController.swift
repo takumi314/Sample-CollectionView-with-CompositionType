@@ -12,9 +12,12 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var tableView: UICollectionView!
 
+    private let dataSource = FirstCollectionViewDataSource()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        tableView.dataSource = dataSource
     }
 
     override func didReceiveMemoryWarning() {
