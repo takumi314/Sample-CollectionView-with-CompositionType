@@ -27,4 +27,8 @@ class FirstCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    func setText(_ text: String) {
+        label.text = text
+    }
+
 }
