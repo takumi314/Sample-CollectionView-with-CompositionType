@@ -15,7 +15,16 @@ class FirstCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        UINib(nibName: <#T##String#>, bundle: <#T##Bundle?#>)
+        if let view
+            = UINib(
+                nibName: "FirstCollectionViewCell",
+                bundle: nil
+            ).instantiate(
+                withOwner: self,
+                options: nil
+            ).first as? UIView {
+            contentView.addSubview(view)
+        }
     }
 
 }
