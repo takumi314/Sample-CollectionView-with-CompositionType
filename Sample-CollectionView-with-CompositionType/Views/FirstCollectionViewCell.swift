@@ -16,8 +16,8 @@ class FirstCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func setText(_ text: String) {
-        label.text = text
-    }
+}
 
+extension FirstCollectionViewCell: ViewModelItem {
+    // default implementation
 }
