@@ -17,6 +17,7 @@
 		E1CDAB7B2022170100F6E5BA /* FirstCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */; };
 		E1CDAB7E20221E5400F6E5BA /* FirstCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB7C20221E5400F6E5BA /* FirstCollectionViewCell.swift */; };
 		E1CDAB7F20221E5400F6E5BA /* FirstCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB7D20221E5400F6E5BA /* FirstCollectionViewCell.xib */; };
+		E1CDAB83202367B300F6E5BA /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB82202367B300F6E5BA /* CellIdentifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		E1CDAB7C20221E5400F6E5BA /* FirstCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCollectionViewCell.swift; sourceTree = "<group>"; };
 		E1CDAB7D20221E5400F6E5BA /* FirstCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstCollectionViewCell.xib; sourceTree = "<group>"; };
+		E1CDAB82202367B300F6E5BA /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		E1CDAB81202366BD00F6E5BA /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E1CDAB82202367B300F6E5BA /* CellIdentifiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1CDAB83202367B300F6E5BA /* CellIdentifiable.swift in Sources */,
 				E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */,
 				E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */,
 				E1CDAB7B2022170100F6E5BA /* FirstCollectionViewDataSource.swift in Sources */,
