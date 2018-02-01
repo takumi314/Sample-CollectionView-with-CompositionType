@@ -10,7 +10,21 @@ import UIKit
 
 class FirstCollectionViewDataSource: NSObject, UICollectionViewDataSource {
 
-    var items = [String]()
+    private var items: [String]
+
+    // MARK: - Initilizer
+
+    init(_ items: [String] = []) {
+        self.items = items
+    }
+
+    // MARK: - Public method
+
+    func setItems(_ items: [String]) {
+        self.items = items
+    }
+
+    // MARK: - UICollectionViewDataSource
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
