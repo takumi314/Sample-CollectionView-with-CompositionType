@@ -17,6 +17,10 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.register(
+            FirstCollectionViewCell.nib,
+            forCellWithReuseIdentifier: FirstCollectionViewCell.identifier
+        )
         tableView.dataSource = dataSource
     }
 
