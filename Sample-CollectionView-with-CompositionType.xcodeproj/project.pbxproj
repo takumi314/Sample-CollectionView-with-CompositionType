@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */; };
-		E1CDAB4F202212E900F6E5BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4E202212E900F6E5BA /* ViewController.swift */; };
+		E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */; };
 		E1CDAB52202212E900F6E5BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB50202212E900F6E5BA /* Main.storyboard */; };
 		E1CDAB54202212E900F6E5BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB53202212E900F6E5BA /* Assets.xcassets */; };
 		E1CDAB57202212E900F6E5BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB55202212E900F6E5BA /* LaunchScreen.storyboard */; };
 		E1CDAB62202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB61202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeTests.swift */; };
 		E1CDAB6D202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB6C202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeUITests.swift */; };
+		E1CDAB7B2022170100F6E5BA /* FirstCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */; };
+		E1CDAB7E20221E5400F6E5BA /* FirstCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB7C20221E5400F6E5BA /* FirstCollectionViewCell.swift */; };
+		E1CDAB7F20221E5400F6E5BA /* FirstCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB7D20221E5400F6E5BA /* FirstCollectionViewCell.xib */; };
+		E1CDAB83202367B300F6E5BA /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB82202367B300F6E5BA /* CellIdentifiable.swift */; };
+		E1CDAB862023715700F6E5BA /* UICollectionViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB852023715700F6E5BA /* UICollectionViewCellExtension.swift */; };
+		E1CDAB88202372A600F6E5BA /* ViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB87202372A600F6E5BA /* ViewModelItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,7 @@
 /* Begin PBXFileReference section */
 		E1CDAB49202212E900F6E5BA /* Sample-CollectionView-with-CompositionType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample-CollectionView-with-CompositionType.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1CDAB4E202212E900F6E5BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		E1CDAB51202212E900F6E5BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1CDAB53202212E900F6E5BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1CDAB56202212E900F6E5BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		E1CDAB68202212E900F6E5BA /* Sample-CollectionView-with-CompositionTypeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample-CollectionView-with-CompositionTypeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDAB6C202212E900F6E5BA /* Sample_CollectionView_with_CompositionTypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_CollectionView_with_CompositionTypeUITests.swift; sourceTree = "<group>"; };
 		E1CDAB6E202212E900F6E5BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		E1CDAB7C20221E5400F6E5BA /* FirstCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1CDAB7D20221E5400F6E5BA /* FirstCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstCollectionViewCell.xib; sourceTree = "<group>"; };
+		E1CDAB82202367B300F6E5BA /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
+		E1CDAB852023715700F6E5BA /* UICollectionViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellExtension.swift; sourceTree = "<group>"; };
+		E1CDAB87202372A600F6E5BA /* ViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +109,16 @@
 		E1CDAB4B202212E900F6E5BA /* Sample-CollectionView-with-CompositionType */ = {
 			isa = PBXGroup;
 			children = (
+				E1CDAB842023711E00F6E5BA /* Extensions */,
+				E1CDAB81202366BD00F6E5BA /* Protocols */,
+				E1CDAB8020221E6500F6E5BA /* Views */,
 				E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */,
-				E1CDAB4E202212E900F6E5BA /* ViewController.swift */,
+				E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */,
 				E1CDAB50202212E900F6E5BA /* Main.storyboard */,
 				E1CDAB53202212E900F6E5BA /* Assets.xcassets */,
 				E1CDAB55202212E900F6E5BA /* LaunchScreen.storyboard */,
 				E1CDAB58202212E900F6E5BA /* Info.plist */,
+				E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */,
 			);
 			path = "Sample-CollectionView-with-CompositionType";
 			sourceTree = "<group>";
@@ -123,6 +139,32 @@
 				E1CDAB6E202212E900F6E5BA /* Info.plist */,
 			);
 			path = "Sample-CollectionView-with-CompositionTypeUITests";
+			sourceTree = "<group>";
+		};
+		E1CDAB8020221E6500F6E5BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1CDAB7C20221E5400F6E5BA /* FirstCollectionViewCell.swift */,
+				E1CDAB7D20221E5400F6E5BA /* FirstCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1CDAB81202366BD00F6E5BA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E1CDAB82202367B300F6E5BA /* CellIdentifiable.swift */,
+				E1CDAB87202372A600F6E5BA /* ViewModelItem.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E1CDAB842023711E00F6E5BA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E1CDAB852023715700F6E5BA /* UICollectionViewCellExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +277,7 @@
 				E1CDAB57202212E900F6E5BA /* LaunchScreen.storyboard in Resources */,
 				E1CDAB54202212E900F6E5BA /* Assets.xcassets in Resources */,
 				E1CDAB52202212E900F6E5BA /* Main.storyboard in Resources */,
+				E1CDAB7F20221E5400F6E5BA /* FirstCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1CDAB4F202212E900F6E5BA /* ViewController.swift in Sources */,
+				E1CDAB83202367B300F6E5BA /* CellIdentifiable.swift in Sources */,
+				E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */,
+				E1CDAB862023715700F6E5BA /* UICollectionViewCellExtension.swift in Sources */,
+				E1CDAB88202372A600F6E5BA /* ViewModelItem.swift in Sources */,
 				E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */,
+				E1CDAB7B2022170100F6E5BA /* FirstCollectionViewDataSource.swift in Sources */,
+				E1CDAB7E20221E5400F6E5BA /* FirstCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
