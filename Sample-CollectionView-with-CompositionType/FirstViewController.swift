@@ -10,7 +10,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
 
     private var dataSource = FirstCollectionViewDataSource([])
 
@@ -19,11 +19,11 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(
+        collectionView.register(
             FirstCollectionViewCell.nib,
             forCellWithReuseIdentifier: FirstCollectionViewCell.identifier
         )
-        tableView.dataSource = dataSource
+        collectionView.dataSource = dataSource
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +40,7 @@ class FirstViewController: UIViewController {
 
     func render(_ items: [String]) {
         dataSource.setItems(items)
-        tableView.reloadData()
+        collectionView.reloadData()
     }
 
 }
