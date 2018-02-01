@@ -21,8 +21,15 @@ class FirstCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: FirstCollectionViewCell.identifier,
+            for: indexPath) as? FirstCollectionViewCell else {
+            let cell = FirstCollectionViewCell()
+                cell.setItem(items[indexPath.row])
+            cell.setItem(items[indexPath.row])
+            return cell
+        }
+        cell.setItem(items[indexPath.row])
         return cell
     }
 
