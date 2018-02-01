@@ -103,6 +103,7 @@
 		E1CDAB4B202212E900F6E5BA /* Sample-CollectionView-with-CompositionType */ = {
 			isa = PBXGroup;
 			children = (
+				E1CDAB81202366BD00F6E5BA /* Protocols */,
 				E1CDAB8020221E6500F6E5BA /* Views */,
 				E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */,
 				E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */,
@@ -140,6 +141,13 @@
 				E1CDAB7D20221E5400F6E5BA /* FirstCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E1CDAB81202366BD00F6E5BA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
