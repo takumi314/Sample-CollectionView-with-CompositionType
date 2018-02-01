@@ -10,9 +10,11 @@ import UIKit
 
 class FirstCollectionViewDataSource: NSObject, UICollectionViewDataSource {
 
+    // MARK: - Header
+
     private var items: [String]
 
-    // MARK: - Initilizer
+    // MARK: - Initializer
 
     init(_ items: [String] = []) {
         self.items = items

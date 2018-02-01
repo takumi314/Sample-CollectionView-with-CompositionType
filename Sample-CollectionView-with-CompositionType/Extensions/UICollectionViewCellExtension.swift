@@ -9,5 +9,5 @@
 import UIKit
 
 extension UICollectionViewCell: CellIdentifiable {
-    
+    // default implementation
 }

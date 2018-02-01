@@ -14,6 +14,8 @@ class FirstViewController: UIViewController {
 
     private var dataSource = FirstCollectionViewDataSource([])
 
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,8 +34,9 @@ class FirstViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+
+    // MARK: - Privates
 
     func render(_ items: [String]) {
         dataSource.setItems(items)

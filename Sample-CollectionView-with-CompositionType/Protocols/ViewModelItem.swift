@@ -10,7 +10,9 @@ import Foundation
 
 protocol ViewModelItem {
     associatedtype T
+
     func setItem(_ item: T)
+
 }
 
 extension ViewModelItem where Self: FirstCollectionViewCell {
@@ -19,4 +21,5 @@ extension ViewModelItem where Self: FirstCollectionViewCell {
     func setItem(_ item: String) {
         label.text = item
     }
+    
 }
