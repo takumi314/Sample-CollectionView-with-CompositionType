@@ -12,7 +12,7 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var tableView: UICollectionView!
 
-    private let dataSource = FirstCollectionViewDataSource()
+    private var dataSource = FirstCollectionViewDataSource([])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,19 @@ class FirstViewController: UIViewController {
         tableView.dataSource = dataSource
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        render(["A", "B", "D", "E", "F", "G"])
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     func render(_ items: [String]) {
-        dataSource.items = items
+        dataSource.setItems(items)
         tableView.reloadData()
     }
 
