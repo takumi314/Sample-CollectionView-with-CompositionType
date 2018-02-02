@@ -86,6 +86,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E126D0EA2024BDA900EFDACB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E1CDAB40202212E900F6E5BA = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +116,7 @@
 		E1CDAB4B202212E900F6E5BA /* Sample-CollectionView-with-CompositionType */ = {
 			isa = PBXGroup;
 			children = (
+				E126D0EA2024BDA900EFDACB /* Models */,
 				E1CDAB842023711E00F6E5BA /* Extensions */,
 				E1CDAB81202366BD00F6E5BA /* Protocols */,
 				E1CDAB8020221E6500F6E5BA /* Views */,
