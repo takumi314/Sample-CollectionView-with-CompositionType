@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E126D0E8202382B200EFDACB /* FirstCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0E7202382B200EFDACB /* FirstCollectionViewFlowLayout.swift */; };
 		E126D0EC2024BEF200EFDACB /* ImageLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0EB2024BEF200EFDACB /* ImageLog.swift */; };
 		E126D0EE2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */; };
 		E126D0F02025476300EFDACB /* ImageLogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E126D0E7202382B200EFDACB /* FirstCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		E126D0EB2024BEF200EFDACB /* ImageLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLog.swift; sourceTree = "<group>"; };
 		E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLogDataSource.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				E1CDAB55202212E900F6E5BA /* LaunchScreen.storyboard */,
 				E1CDAB58202212E900F6E5BA /* Info.plist */,
 				E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */,
+				E126D0E7202382B200EFDACB /* FirstCollectionViewFlowLayout.swift */,
 			);
 			path = "Sample-CollectionView-with-CompositionType";
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				E1CDAB83202367B300F6E5BA /* CellIdentifiable.swift in Sources */,
 				E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */,
 				E1CDAB862023715700F6E5BA /* UICollectionViewCellExtension.swift in Sources */,
+				E126D0E8202382B200EFDACB /* FirstCollectionViewFlowLayout.swift in Sources */,
 				E1CDAB88202372A600F6E5BA /* ViewModelItem.swift in Sources */,
 				E126D0F02025476300EFDACB /* ImageLogDataSource.swift in Sources */,
 				E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */,
