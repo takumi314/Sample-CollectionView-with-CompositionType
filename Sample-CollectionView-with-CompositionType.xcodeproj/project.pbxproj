@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E126D0EC2024BEF200EFDACB /* ImageLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0EB2024BEF200EFDACB /* ImageLog.swift */; };
 		E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */; };
 		E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */; };
 		E1CDAB52202212E900F6E5BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB50202212E900F6E5BA /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E126D0EB2024BEF200EFDACB /* ImageLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLog.swift; sourceTree = "<group>"; };
 		E1CDAB49202212E900F6E5BA /* Sample-CollectionView-with-CompositionType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample-CollectionView-with-CompositionType.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		E126D0EA2024BDA900EFDACB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E126D0EB2024BEF200EFDACB /* ImageLog.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				E1CDAB88202372A600F6E5BA /* ViewModelItem.swift in Sources */,
 				E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */,
 				E1CDAB7B2022170100F6E5BA /* FirstCollectionViewDataSource.swift in Sources */,
+				E126D0EC2024BEF200EFDACB /* ImageLog.swift in Sources */,
 				E1CDAB7E20221E5400F6E5BA /* FirstCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
