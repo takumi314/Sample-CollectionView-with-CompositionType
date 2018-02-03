@@ -55,6 +55,21 @@ class FirstViewController: UIViewController {
         self.picker = picker
     }
 
+    func dialog(with image: UIImage) {
+        let alert = UIAlertController(title: "Name",
+                                      message: "Give a photo name.",
+                                      preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK",
+                               style: .default,
+                               handler: { [weak self]_ in
+                                let name = alert.textFields?.first?.text ?? "No name"
+                                self?.dataSource.set(ImageLog(image: image, name: name, date: Date()))
+        })
+        alert.addAction(ok)
+        alert.addTextField(configurationHandler: nil)
+        present(alert, animated: true, completion: nil)
+    }
+
     // MARK: - Privates
 
     func render(_ items: [String]) {
