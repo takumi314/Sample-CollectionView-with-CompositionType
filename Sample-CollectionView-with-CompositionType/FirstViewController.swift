@@ -42,10 +42,10 @@ class FirstViewController: UIViewController {
         let picker = ImagePickerViewControllerDelegate(
             imagePicker: UIImagePickerController(),
             presenting: self,
-            handler: { (result) in
+            handler: { [weak self](result) in
                 switch result {
                 case .success(let image):
-                    vc.dialog(with: image)
+                    self?.dialog(with: image)
                     break
                 default:
                     break
