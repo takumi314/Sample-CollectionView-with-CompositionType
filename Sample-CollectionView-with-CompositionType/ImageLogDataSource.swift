@@ -12,17 +12,13 @@ class ImageLogDataSource: NSObject, UICollectionViewDataSource {
 
     private var imageLogs = [ImageLog]()
 
-    func add(_ log: ImageLog) {
-        imageLogs.append(log)
+    // MARK: - Initializer
+
+    init(_ items: [ImageLog] = []) {
+        self.imageLogs = items
     }
 
-    func deleteAll() {
-        imageLogs.removeAll()
-    }
-
-    func delete(at indexPath: IndexPath) {
-        imageLogs.remove(at: indexPath.row)
-    }
+    // MARK: - UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageLogs.count
@@ -32,6 +28,26 @@ class ImageLogDataSource: NSObject, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
 
         return cell
+    }
+
+}
+
+extension ImageLogDataSource: DataSourcing {
+
+    func set(_ item: ImageLog) {
+        imageLogs.append(item)
+    }
+
+    func set(_ items: [ImageLog]) {
+        self.imageLogs = items
+    }
+
+    func deleteAll() {
+        imageLogs.removeAll()
+    }
+
+    func delete(at index: Int) {
+        imageLogs.remove(at: index)
     }
 
 }
