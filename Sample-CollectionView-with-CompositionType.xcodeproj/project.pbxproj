@@ -11,6 +11,8 @@
 		E126D0EE2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */; };
 		E126D0F02025476300EFDACB /* ImageLogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */; };
 		E126D0F32025515100EFDACB /* DataSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0F22025515100EFDACB /* DataSourcing.swift */; };
+		E126D0FC20257B3E00EFDACB /* ImageLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0FA20257B3E00EFDACB /* ImageLogCollectionViewCell.swift */; };
+		E126D0FD20257B3E00EFDACB /* ImageLogCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E126D0FB20257B3E00EFDACB /* ImageLogCollectionViewCell.xib */; };
 		E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */; };
 		E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */; };
 		E1CDAB52202212E900F6E5BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB50202212E900F6E5BA /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLogDataSource.swift; sourceTree = "<group>"; };
 		E126D0F22025515100EFDACB /* DataSourcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcing.swift; sourceTree = "<group>"; };
+		E126D0FA20257B3E00EFDACB /* ImageLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLogCollectionViewCell.swift; sourceTree = "<group>"; };
+		E126D0FB20257B3E00EFDACB /* ImageLogCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageLogCollectionViewCell.xib; sourceTree = "<group>"; };
 		E1CDAB49202212E900F6E5BA /* Sample-CollectionView-with-CompositionType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample-CollectionView-with-CompositionType.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			children = (
 				E1CDAB7C20221E5400F6E5BA /* FirstCollectionViewCell.swift */,
 				E1CDAB7D20221E5400F6E5BA /* FirstCollectionViewCell.xib */,
+				E126D0FA20257B3E00EFDACB /* ImageLogCollectionViewCell.swift */,
+				E126D0FB20257B3E00EFDACB /* ImageLogCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E126D0FD20257B3E00EFDACB /* ImageLogCollectionViewCell.xib in Resources */,
 				E1CDAB57202212E900F6E5BA /* LaunchScreen.storyboard in Resources */,
 				E1CDAB54202212E900F6E5BA /* Assets.xcassets in Resources */,
 				E1CDAB52202212E900F6E5BA /* Main.storyboard in Resources */,
@@ -340,6 +347,7 @@
 			files = (
 				E126D0F32025515100EFDACB /* DataSourcing.swift in Sources */,
 				E126D0EE2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift in Sources */,
+				E126D0FC20257B3E00EFDACB /* ImageLogCollectionViewCell.swift in Sources */,
 				E1CDAB83202367B300F6E5BA /* CellIdentifiable.swift in Sources */,
 				E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */,
 				E1CDAB862023715700F6E5BA /* UICollectionViewCellExtension.swift in Sources */,
