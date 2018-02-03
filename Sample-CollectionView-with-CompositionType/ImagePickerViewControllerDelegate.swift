@@ -45,6 +45,7 @@ class ImagePickerViewControllerDelegate: NSObject, UIImagePickerControllerDelega
             handler(.failure)
             return
         }
+        picker.dismiss(animated: true, completion: nil)
         handler(.success(image))
     }
 
