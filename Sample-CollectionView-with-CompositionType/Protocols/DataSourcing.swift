@@ -9,5 +9,12 @@
 import Foundation
 
 protocol DataSourcing {
-    
+
+    associatedtype T
+
+    func set(_ item: T)
+    func set(_ items: [T])
+    func deleteAll()
+    func delete(at index: Int)
+
 }
