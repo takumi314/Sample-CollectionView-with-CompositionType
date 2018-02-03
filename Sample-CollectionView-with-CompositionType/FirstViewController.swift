@@ -73,6 +73,7 @@ class FirstViewController: UIViewController {
 
     func render(_ items: [String]) {
         dataSource.set(items)
+        collectionView.setCollectionViewLayout(FirstCollectionViewFlowLayout() , animated: false)
         collectionView.reloadData()
     }
 
