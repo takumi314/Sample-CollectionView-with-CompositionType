@@ -20,12 +20,6 @@ class FirstCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         self.items = items
     }
 
-    // MARK: - Public method
-
-    func setItems(_ items: [String]) {
-        self.items = items
-    }
-
     // MARK: - UICollectionViewDataSource
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -47,6 +41,26 @@ class FirstCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         }
         cell.setItem(items[indexPath.row])
         return cell
+    }
+
+}
+
+extension FirstCollectionViewDataSource: DataSourcing {
+
+    func set(_ item: String) {
+        self.items.append(item)
+    }
+
+    func set(_ items: [String]) {
+        self.items = items
+    }
+
+    func deleteAll() {
+        items.removeAll()
+    }
+
+    func delete(at index: Int) {
+        items.remove(at: index)
     }
 
 }
