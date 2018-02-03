@@ -10,6 +10,11 @@ import UIKit
 
 class ImageLogCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - IBOutlets
+
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
