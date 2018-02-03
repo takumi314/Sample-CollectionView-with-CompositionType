@@ -21,3 +21,7 @@ class ImageLogCollectionViewCell: UICollectionViewCell {
     }
 
 }
+
+extension ImageLogCollectionViewCell: ViewModelItem {
+    // default Implementation
+}
