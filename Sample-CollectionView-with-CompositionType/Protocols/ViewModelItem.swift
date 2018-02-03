@@ -23,7 +23,12 @@ extension ViewModelItem where Self: FirstCollectionViewCell {
 
 extension ViewModelItem where Self: ImageLogCollectionViewCell {
     func setItem(_ item: ImageLog) {
+        indicatorView.activityIndicatorViewStyle = .gray
+        indicatorView.isHidden = false
+        indicatorView.startAnimating()
+        indicatorView.hidesWhenStopped = true
         imageView.image = item.image
+        indicatorView.stopAnimating()
     }
 }
 
