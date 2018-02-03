@@ -6,4 +6,12 @@
 //  Copyright © 2018年 Kohey.Nishioka. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UICollectionView {
+
+    func register<T: CellIdentifiable>(_ className: T.Type) {
+        self.register(T.nib, forCellWithReuseIdentifier: T.identifier)
+    }
+
+}
