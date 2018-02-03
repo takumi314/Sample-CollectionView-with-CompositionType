@@ -14,6 +14,7 @@ class FirstViewController: UIViewController {
     private var picker: ImagePickerViewControllerDelegate?
 
     private var dataSource = FirstCollectionViewDataSource([])
+    private var imageDataSource = ImageLogDataSource([])
 
     // MARK: - Life cycle
 
@@ -64,7 +65,7 @@ class FirstViewController: UIViewController {
                                style: .default,
                                handler: { [weak self]_ in
                                 let name = alert.textFields?.first?.text ?? "No name"
-                                self?.dataSource.set(ImageLog(image: image, name: name, date: Date()))
+                                self?.imageDataSource.set(ImageLog(image: image, name: name, date: Date()))
         })
         alert.addAction(ok)
         alert.addTextField(configurationHandler: nil)
