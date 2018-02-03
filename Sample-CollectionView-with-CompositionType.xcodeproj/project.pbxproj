@@ -10,6 +10,7 @@
 		E126D0EC2024BEF200EFDACB /* ImageLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0EB2024BEF200EFDACB /* ImageLog.swift */; };
 		E126D0EE2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */; };
 		E126D0F02025476300EFDACB /* ImageLogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */; };
+		E126D0F32025515100EFDACB /* DataSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126D0F22025515100EFDACB /* DataSourcing.swift */; };
 		E1CDAB4D202212E900F6E5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */; };
 		E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */; };
 		E1CDAB52202212E900F6E5BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CDAB50202212E900F6E5BA /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		E126D0EB2024BEF200EFDACB /* ImageLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLog.swift; sourceTree = "<group>"; };
 		E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLogDataSource.swift; sourceTree = "<group>"; };
+		E126D0F22025515100EFDACB /* DataSourcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcing.swift; sourceTree = "<group>"; };
 		E1CDAB49202212E900F6E5BA /* Sample-CollectionView-with-CompositionType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample-CollectionView-with-CompositionType.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDAB4C202212E900F6E5BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CDAB4E202212E900F6E5BA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				E1CDAB82202367B300F6E5BA /* CellIdentifiable.swift */,
 				E1CDAB87202372A600F6E5BA /* ViewModelItem.swift */,
+				E126D0F22025515100EFDACB /* DataSourcing.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E126D0F32025515100EFDACB /* DataSourcing.swift in Sources */,
 				E126D0EE2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift in Sources */,
 				E1CDAB83202367B300F6E5BA /* CellIdentifiable.swift in Sources */,
 				E1CDAB4F202212E900F6E5BA /* FirstViewController.swift in Sources */,
