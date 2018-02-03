@@ -36,6 +36,25 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: - Actions
+
+    @objc func camera() {
+        let picker = ImagePickerViewControllerDelegate(
+            imagePicker: UIImagePickerController(),
+            presenting: self,
+            handler: { (result) in
+                switch result {
+                case .success(let image):
+                    vc.dialog(with: image)
+                    break
+                default:
+                    break
+                }
+        })
+        picker.openCamera(presenting: self)
+        self.picker = picker
+    }
+
     // MARK: - Privates
 
     func render(_ items: [String]) {
