@@ -21,10 +21,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.register(
-            FirstCollectionViewCell.nib,
-            forCellWithReuseIdentifier: FirstCollectionViewCell.identifier
-        )
+        collectionView.register(FirstCollectionViewCell.self)
         collectionView.dataSource = dataSource
     }
 
