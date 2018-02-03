@@ -13,7 +13,6 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private var picker: ImagePickerViewControllerDelegate?
 
-    private var dataSource = FirstCollectionViewDataSource([])
     private var imageDataSource = ImageLogDataSource([])
 
     // MARK: - Life cycle
@@ -21,14 +20,29 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.register(FirstCollectionViewCell.self)
-        collectionView.dataSource = dataSource
+        collectionView.setCollectionViewLayout(FirstCollectionViewFlowLayout() , animated: false)
+        collectionView.register(ImageLogCollectionViewCell.self)
+        collectionView.dataSource = imageDataSource
+
+        render([])
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
 
-        render(["A", "B", "D", "E", "F", "G", "A", "B", "D", "E", "F", "G", "A", "B", "D", "E", "F", "G"])
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        let screen = UIScreen.main.bounds
+        let frame = CGRect(x: screen.width / 2, y: screen.height - 100, width: 50, height: 50)
+        let button = UIButton()
+        button.frame = frame
+        button.isSelected = false
+        button.backgroundColor = .purple
+        button.addTarget(self, action: #selector(camera), for: .touchDown)
+        collectionView.addSubview(button)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +76,8 @@ class FirstViewController: UIViewController {
                                style: .default,
                                handler: { [weak self]_ in
                                 let name = alert.textFields?.first?.text ?? "No name"
-                                self?.imageDataSource.set(ImageLog(image: image, name: name, date: Date()))
+                                self?.update(ImageLog(image: image, name: name, date: Date()))
+
         })
         alert.addAction(ok)
         alert.addTextField(configurationHandler: nil)
@@ -71,10 +86,16 @@ class FirstViewController: UIViewController {
 
     // MARK: - Privates
 
-    func render(_ items: [String]) {
-        dataSource.set(items)
-        collectionView.setCollectionViewLayout(FirstCollectionViewFlowLayout() , animated: false)
+    private func render(_ items: [ImageLog]) {
+        imageDataSource.set(items)
         collectionView.reloadData()
+    }
+
+    private func update(_ item: ImageLog){
+        imageDataSource.set(item)
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 
 }
