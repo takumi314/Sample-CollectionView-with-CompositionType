@@ -23,3 +23,10 @@ extension ViewModelItem where Self: FirstCollectionViewCell {
     }
     
 }
+
+extension ViewModelItem where Self: ImageLogCollectionViewCell {
+    func setItem(_ item: ImageLog) {
+        imageView.image = item.image
+    }
+}
+
