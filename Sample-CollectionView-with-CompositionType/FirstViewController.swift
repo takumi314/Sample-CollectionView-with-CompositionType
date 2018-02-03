@@ -34,15 +34,16 @@ class FirstViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        let screen = UIScreen.main.bounds
-        let frame = CGRect(x: screen.width / 2, y: screen.height - 100, width: 50, height: 50)
-        let button = UIButton()
-        button.frame = frame
-        button.isSelected = false
-        button.backgroundColor = .purple
-        button.addTarget(self, action: #selector(camera), for: .touchDown)
-        collectionView.addSubview(button)
-
+        if collectionView.subviews.filter({ $0 is UIButton }).isEmpty {
+            let screen = UIScreen.main.bounds
+            let frame = CGRect(x: screen.width / 2, y: screen.height - 100, width: 50, height: 50)
+            let button = UIButton()
+            button.frame = frame
+            button.isSelected = false
+            button.backgroundColor = .purple
+            button.addTarget(self, action: #selector(camera), for: .touchDown)
+            collectionView.addSubview(button)
+        }
     }
 
     override func didReceiveMemoryWarning() {
