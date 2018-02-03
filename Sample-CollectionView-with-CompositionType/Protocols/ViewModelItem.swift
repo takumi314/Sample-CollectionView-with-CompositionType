@@ -10,16 +10,20 @@ import Foundation
 
 protocol ViewModelItem {
     associatedtype T
-
     func setItem(_ item: T)
 
 }
 
 extension ViewModelItem where Self: FirstCollectionViewCell {
-    typealias T = String
-
     func setItem(_ item: String) {
         label.text = item
     }
     
 }
+
+extension ViewModelItem where Self: ImageLogCollectionViewCell {
+    func setItem(_ item: ImageLog) {
+        imageView.image = item.image
+    }
+}
+
