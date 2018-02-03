@@ -102,6 +102,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E126D0F4202564F000EFDACB /* Compositions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Compositions;
+			sourceTree = "<group>";
+		};
 		E1CDAB40202212E900F6E5BA = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +132,7 @@
 		E1CDAB4B202212E900F6E5BA /* Sample-CollectionView-with-CompositionType */ = {
 			isa = PBXGroup;
 			children = (
+				E126D0F4202564F000EFDACB /* Compositions */,
 				E126D0EA2024BDA900EFDACB /* Models */,
 				E1CDAB842023711E00F6E5BA /* Extensions */,
 				E1CDAB81202366BD00F6E5BA /* Protocols */,
