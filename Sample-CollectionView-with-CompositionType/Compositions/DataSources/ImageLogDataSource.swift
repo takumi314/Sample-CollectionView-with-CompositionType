@@ -25,7 +25,12 @@ class ImageLogDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageLogCollectionViewCell.identifier, for: indexPath) as? ImageLogCollectionViewCell else {
+            let cell = ImageLogCollectionViewCell()
+            cell.setItem(imageLogs[indexPath.row])
+            return cell
+        }
+        cell.setItem(imageLogs[indexPath.row])
 
         return cell
     }
