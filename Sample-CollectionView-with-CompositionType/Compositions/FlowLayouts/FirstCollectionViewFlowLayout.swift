@@ -10,7 +10,7 @@ import UIKit
 
 let numberOfColumn: CGFloat = 2
 let screenWidth = UIScreen.main.bounds.width
-let minimumSpacing: CGFloat = 20
+let minimumSpacing: CGFloat = 10
 
 class FirstCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
@@ -23,7 +23,7 @@ class FirstCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let itemSizs = CGSize(width: itemOfWidth, height: itemOfWidth)
 
         self.itemSize = itemSizs
-        self.minimumLineSpacing = itemSizs.height * 0.25
+        self.minimumLineSpacing = minimumSpacing
         self.minimumInteritemSpacing = minimumSpacing
         self.scrollDirection = .vertical
 
