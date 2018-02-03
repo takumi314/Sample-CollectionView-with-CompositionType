@@ -11,6 +11,7 @@ import UIKit
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    private var picker: ImagePickerViewControllerDelegate?
 
     private var dataSource = FirstCollectionViewDataSource([])
 
