@@ -105,8 +105,18 @@
 		E126D0F4202564F000EFDACB /* Compositions */ = {
 			isa = PBXGroup;
 			children = (
+				E126D0F52025655900EFDACB /* DataSources */,
 			);
 			path = Compositions;
+			sourceTree = "<group>";
+		};
+		E126D0F52025655900EFDACB /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */,
+				E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		E1CDAB40202212E900F6E5BA = {
@@ -143,9 +153,7 @@
 				E1CDAB53202212E900F6E5BA /* Assets.xcassets */,
 				E1CDAB55202212E900F6E5BA /* LaunchScreen.storyboard */,
 				E1CDAB58202212E900F6E5BA /* Info.plist */,
-				E1CDAB7A2022170000F6E5BA /* FirstCollectionViewDataSource.swift */,
 				E126D0ED2024C52200EFDACB /* ImagePickerViewControllerDelegate.swift */,
-				E126D0EF2025476300EFDACB /* ImageLogDataSource.swift */,
 			);
 			path = "Sample-CollectionView-with-CompositionType";
 			sourceTree = "<group>";
