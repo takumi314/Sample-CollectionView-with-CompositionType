@@ -21,7 +21,7 @@ class ImagePickerViewControllerDelegate: NSObject, UIImagePickerControllerDelega
     private let viewController: UIViewController
     private let imagePicker: UIImagePickerController
 
-    init(_ imagePicker: UIImagePickerController, viewController: UIViewController, handler: @escaping (ImageResult) -> ()) {
+    init(imagePicker: UIImagePickerController, presenting viewController: UIViewController, handler: @escaping (ImageResult) -> ()) {
         self.imagePicker = imagePicker
         self.viewController = viewController
         self.handler = handler
