@@ -21,17 +21,14 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.register(
-            FirstCollectionViewCell.nib,
-            forCellWithReuseIdentifier: FirstCollectionViewCell.identifier
-        )
+        collectionView.register(FirstCollectionViewCell.self)
         collectionView.dataSource = dataSource
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        render(["A", "B", "D", "E", "F", "G"])
+        render(["A", "B", "D", "E", "F", "G", "A", "B", "D", "E", "F", "G", "A", "B", "D", "E", "F", "G"])
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +73,7 @@ class FirstViewController: UIViewController {
 
     func render(_ items: [String]) {
         dataSource.set(items)
+        collectionView.setCollectionViewLayout(FirstCollectionViewFlowLayout() , animated: false)
         collectionView.reloadData()
     }
 
