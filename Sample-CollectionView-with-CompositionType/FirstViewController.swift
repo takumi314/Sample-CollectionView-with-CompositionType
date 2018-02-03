@@ -28,7 +28,7 @@ class FirstViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        render(["A", "B", "D", "E", "F", "G"])
+        render(["A", "B", "D", "E", "F", "G", "A", "B", "D", "E", "F", "G", "A", "B", "D", "E", "F", "G"])
     }
 
     override func didReceiveMemoryWarning() {
