@@ -73,7 +73,7 @@ class FirstViewController: UIViewController {
     // MARK: - Privates
 
     func render(_ items: [String]) {
-        dataSource.setItems(items)
+        dataSource.set(items)
         collectionView.reloadData()
     }
 
