@@ -23,32 +23,101 @@ class FirstViewController: UIViewController {
         collectionView.setCollectionViewLayout(FirstCollectionViewFlowLayout() , animated: false)
         collectionView.register(ImageLogCollectionViewCell.self)
         collectionView.dataSource = imageDataSource
+        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touched)))
 
         render([])
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
 
         if collectionView.subviews.filter({ $0 is UIButton }).isEmpty {
             let screen = UIScreen.main.bounds
-            let frame = CGRect(x: screen.width / 2, y: screen.height - 100, width: 50, height: 50)
+            let tabBar = UIApplication.shared.keyWindow?.rootViewController?.tabBarController?.tabBar.frame.size.height ?? 100
+            let frame = CGRect(x: screen.width - 70, y: screen.height - tabBar - 50, width: 50, height: 50)
             let button = UIButton()
             button.frame = frame
             button.isSelected = false
             button.backgroundColor = .purple
             button.addTarget(self, action: #selector(camera), for: .touchDown)
-            collectionView.addSubview(button)
+            view.addSubview(button)
+            Timer.scheduledTimer(
+                withTimeInterval: 3.0,
+                repeats: false,
+                block: { _ in
+                    UIView.animate(
+                        withDuration: 1.0,
+                        animations: {
+                            button.isHidden = true
+                            button.isUserInteractionEnabled = false
+                    })
+
+            })
         }
+    }
+
+    @objc func touched() {
+        guard let button = view.subviews.filter({ $0 is UIButton }).first, button.isHidden else {
+            return
+        }
+        button.isUserInteractionEnabled = false
+        UIView.animate(
+            withDuration: 1.0,
+            animations: {
+                button.isHidden = false
+                button.isUserInteractionEnabled = true
+        }, completion: { _ in
+            Timer.scheduledTimer(
+                withTimeInterval: 2.0,
+                repeats: false,
+                block: { _ in
+                    UIView.animate(
+                        withDuration: 1.0,
+                        animations: {
+                            button.isHidden = true
+                            button.isUserInteractionEnabled = false
+                    })
+            })
+        })
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        if let button = view.subviews.filter({ $0 is UIButton }).first {
+            coordinator.animate(
+                alongsideTransition: { _ in
+                    let screen = UIScreen.main.bounds
+                    let tabBar = UIApplication.shared.keyWindow?.rootViewController?.tabBarController?.tabBar.frame.size.height ?? 100
+                    button.frame = CGRect(x: screen.width - 70,
+                                          y: screen.height - tabBar - 10,
+                                          width: button.bounds.width,
+                                          height: button.bounds.height)
+            }, completion: { _ in
+                button.isHidden = false
+                button.isUserInteractionEnabled = true
+                Timer.scheduledTimer(
+                    withTimeInterval: 2.0,
+                    repeats: false,
+                    block: { _ in
+                        UIView.animate(
+                            withDuration: 2.0,
+                            animations: {
+                                button.isHidden = true
+                                button.isUserInteractionEnabled = false
+                        })
+                })
+            })
+        }
+    }
+
 
     // MARK: - Actions
 
