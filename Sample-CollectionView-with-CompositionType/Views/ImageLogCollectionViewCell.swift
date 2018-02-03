@@ -15,9 +15,12 @@ class ImageLogCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
 
+    // MARK: - Initializer
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        indicatorView.isHidden = true
     }
 
 }
