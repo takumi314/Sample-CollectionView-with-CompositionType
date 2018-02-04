@@ -45,3 +45,21 @@ struct DataStore<U> {
         return repository.load()
     }
 }
+
+class TestContainer {
+    let userDefault = UserDefaults.standard
+
+    func hoge() {
+        let store = DataStore<String>(UserDefaults())
+        // 保存
+        let input = "TEST"
+        store.save(input)
+
+        // 読み出し
+        let output = store.load()
+
+        assert(input == output, "データ永続化処理の動作チェック")
+    }
+}
+
+
