@@ -25,7 +25,14 @@ class FirstViewController: UIViewController {
         collectionView.dataSource = imageDataSource
         collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touched)))
 
-        render([])
+        let store = DataStore<Data>(UserDefaults.standard)
+        if let data = store.load() {
+            if let imageData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ImageData] {
+                let items = imageData.map({ ImageLog($0) })
+                render(items)
+            }
+        }
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -146,8 +153,7 @@ class FirstViewController: UIViewController {
                                style: .default,
                                handler: { [weak self]_ in
                                 let name = alert.textFields?.first?.text ?? "No name"
-                                self?.update(ImageLog(image: image, name: name, date: Date()))
-
+                                self?.update(ImageData(image: image, name: name, date: Date()) )
         })
         alert.addAction(ok)
         alert.addTextField(configurationHandler: nil)
@@ -161,11 +167,23 @@ class FirstViewController: UIViewController {
         collectionView.reloadData()
     }
 
-    private func update(_ item: ImageLog){
-        imageDataSource.set(item)
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+    private func update(_ data: ImageData){
+        var items = [ImageData]()
+        let store = DataStore<Data>(UserDefaults.standard)
+        if let all = store.load() {
+            if let imageData = NSKeyedUnarchiver.unarchiveObject(with: all) as? [ImageData] {
+                items = imageData
+            }
         }
+
+        // save
+        items.append(data)
+        store.save(NSKeyedArchiver.archivedData(withRootObject: items))
+
+        // update view
+        let item = ImageLog(data)
+        imageDataSource.set(item)
+        collectionView.reloadData()
     }
 
 }
