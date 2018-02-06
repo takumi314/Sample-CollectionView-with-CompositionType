@@ -25,6 +25,27 @@ class FirstViewController: UIViewController {
         collectionView.dataSource = imageDataSource
         collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touched)))
 
+        imageDataSource.deletingAction = { [unowned self] (indexPath) in
+            let alert = UIAlertController(title: "Atteion",
+                                          message: "Are you sure ?",
+                                          preferredStyle: .alert)
+            let ok = UIAlertAction(
+                title: "OK",
+                style: .destructive,
+                handler: { _ in
+                    self.delete(at: indexPath)
+            })
+            let cancel = UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: nil)
+            alert.addAction(ok)
+            alert.addAction(cancel)
+            self.present(alert,
+                         animated: true,
+                         completion: nil)
+        }
+
         let store = DataStore<Data>(UserDefaults.standard)
         if let data = store.load() {
             if let imageData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ImageData] {
@@ -184,6 +205,15 @@ class FirstViewController: UIViewController {
         let item = ImageLog(data)
         imageDataSource.set(item)
         collectionView.reloadData()
+    }
+
+    private func delete(at indexPath: IndexPath) {
+        collectionView.performBatchUpdates({ [unowned self] in
+            self.imageDataSource.delete(at: indexPath.row)
+            self.collectionView.deleteItems(at: [indexPath])
+        }, completion: { [unowned self] _ in
+            self.collectionView.reloadData()
+        })
     }
 
 }
