@@ -10,6 +10,8 @@ import UIKit
 
 class ImageLogDataSource: NSObject, UICollectionViewDataSource {
 
+    var deletingAction: ((IndexPath) -> ())?
+
     private var imageLogs = [ImageLog]()
 
     // MARK: - Initializer
@@ -31,7 +33,13 @@ class ImageLogDataSource: NSObject, UICollectionViewDataSource {
             return cell
         }
         cell.setItem(imageLogs[indexPath.row])
-
+        cell.willRecognizeLognPress(
+            batch: ActionBatch(input: indexPath,
+                               gestureAction: { [weak self] (indexPath) in
+                                guard let action = self?.deletingAction else { return }
+                                action(indexPath)
+            })
+        )
         return cell
     }
 
@@ -52,7 +60,20 @@ extension ImageLogDataSource: DataSourcing {
     }
 
     func delete(at index: Int) {
+        let log = imageLogs[index]
+        let url = log.imageData.imageData
         imageLogs.remove(at: index)
+        try! FileManager.default.removeItem(at: url)
+
+        var items = [ImageData]()
+        let store = DataStore<Data>(UserDefaults.standard)
+        if let data = store.load() {
+            items = NSKeyedUnarchiver.unarchiveObject(with: data) as! [ImageData]
+        }
+        items.remove(at: index)
+
+        let data = NSKeyedArchiver.archivedData(withRootObject: items)
+        store.save(data)
     }
 
 }
