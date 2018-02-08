@@ -119,6 +119,7 @@
 		E126D0F4202564F000EFDACB /* Compositions */ = {
 			isa = PBXGroup;
 			children = (
+				E1316767202CB4B300F2C3BB /* Transitions */,
 				E126D0FE2025878400EFDACB /* FlowLayouts */,
 				E126D0F52025655900EFDACB /* DataSources */,
 			);
@@ -140,6 +141,13 @@
 				E126D0FF2025880C00EFDACB /* FirstCollectionViewFlowLayout.swift */,
 			);
 			path = FlowLayouts;
+			sourceTree = "<group>";
+		};
+		E1316767202CB4B300F2C3BB /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		E1CDAB40202212E900F6E5BA = {
