@@ -81,23 +81,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lLI-L3-WHM">
-                                <rect key="frame" x="0.0" y="70" width="375" height="281.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gc9-I3-ftA">
+                                <rect key="frame" x="16" y="175.5" width="343" height="317"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEF-PL-Qfc">
+                                        <rect key="frame" x="0.0" y="-0.5" width="343" height="257.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kEF-PL-Qfc" secondAttribute="height" multiplier="4:3" id="CGB-ea-C2v"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="lLI-L3-WHM" secondAttribute="height" multiplier="4:3" id="1OI-ch-G0a"/>
+                                    <constraint firstAttribute="trailing" secondItem="kEF-PL-Qfc" secondAttribute="trailing" id="DWU-KT-MqH"/>
+                                    <constraint firstItem="kEF-PL-Qfc" firstAttribute="top" secondItem="gc9-I3-ftA" secondAttribute="top" id="DZb-lM-inc"/>
+                                    <constraint firstItem="kEF-PL-Qfc" firstAttribute="leading" secondItem="gc9-I3-ftA" secondAttribute="leading" id="Jqh-qb-jVG"/>
+                                    <constraint firstAttribute="bottom" secondItem="kEF-PL-Qfc" secondAttribute="bottom" constant="60" id="dfX-qE-H4L"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lLI-L3-WHM" firstAttribute="leading" secondItem="Rx6-My-x8Y" secondAttribute="leading" id="LMb-gp-Ohh"/>
-                            <constraint firstItem="lLI-L3-WHM" firstAttribute="top" secondItem="Rx6-My-x8Y" secondAttribute="top" constant="50" id="PAr-qG-Vg4"/>
-                            <constraint firstItem="lLI-L3-WHM" firstAttribute="trailing" secondItem="Rx6-My-x8Y" secondAttribute="trailing" id="kHb-n4-Ti5"/>
+                            <constraint firstItem="gc9-I3-ftA" firstAttribute="centerY" secondItem="Dvv-qB-ydV" secondAttribute="centerY" id="7D7-Oi-nFB"/>
+                            <constraint firstItem="gc9-I3-ftA" firstAttribute="centerX" secondItem="Dvv-qB-ydV" secondAttribute="centerX" id="GfR-DS-vpb"/>
+                            <constraint firstItem="gc9-I3-ftA" firstAttribute="leading" secondItem="Rx6-My-x8Y" secondAttribute="leading" constant="16" id="feM-2z-rYT"/>
+                            <constraint firstItem="Rx6-My-x8Y" firstAttribute="trailing" secondItem="gc9-I3-ftA" secondAttribute="trailing" constant="16" id="ssT-Ku-zmz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rx6-My-x8Y"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="lLI-L3-WHM" id="3vG-Ty-Ovc"/>
+                        <outlet property="modalView" destination="gc9-I3-ftA" id="g7y-e9-4qp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyf-hW-2UB" userLabel="First Responder" sceneMemberID="firstResponder"/>
