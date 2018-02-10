@@ -10,12 +10,12 @@ import UIKit
 
 class ImageDetailViewController: UIViewController {
 
+    @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
