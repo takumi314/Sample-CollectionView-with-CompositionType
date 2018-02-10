@@ -110,6 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="Rx6-My-x8Y"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="kEF-PL-Qfc" id="J3N-EW-ogx"/>
                         <outlet property="modalView" destination="gc9-I3-ftA" id="g7y-e9-4qp"/>
                     </connections>
                 </viewController>
