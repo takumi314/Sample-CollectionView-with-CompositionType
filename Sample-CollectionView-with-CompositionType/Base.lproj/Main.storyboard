@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,7 +80,20 @@
                     <view key="view" contentMode="scaleToFill" id="Dvv-qB-ydV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lLI-L3-WHM">
+                                <rect key="frame" x="0.0" y="70" width="375" height="281.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lLI-L3-WHM" secondAttribute="height" multiplier="4:3" id="1OI-ch-G0a"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lLI-L3-WHM" firstAttribute="leading" secondItem="Rx6-My-x8Y" secondAttribute="leading" id="LMb-gp-Ohh"/>
+                            <constraint firstItem="lLI-L3-WHM" firstAttribute="top" secondItem="Rx6-My-x8Y" secondAttribute="top" constant="50" id="PAr-qG-Vg4"/>
+                            <constraint firstItem="lLI-L3-WHM" firstAttribute="trailing" secondItem="Rx6-My-x8Y" secondAttribute="trailing" id="kHb-n4-Ti5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Rx6-My-x8Y"/>
                     </view>
                 </viewController>
