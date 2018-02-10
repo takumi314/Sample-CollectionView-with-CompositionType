@@ -76,7 +76,7 @@
         <!--Image Detail View Controller-->
         <scene sceneID="h6w-x1-AuV">
             <objects>
-                <viewController id="qmb-il-LRl" customClass="ImageDetailViewController" customModule="Sample_CollectionView_with_CompositionType" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qmb-il-LRl" customClass="ImageDetailViewController" customModule="Sample_CollectionView_with_CompositionType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dvv-qB-ydV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,6 +96,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rx6-My-x8Y"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="lLI-L3-WHM" id="3vG-Ty-Ovc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyf-hW-2UB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
