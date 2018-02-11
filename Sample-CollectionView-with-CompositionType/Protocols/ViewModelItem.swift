@@ -28,6 +28,7 @@ extension ViewModelItem where Self: ImageLogCollectionViewCell {
         indicatorView.startAnimating()
         indicatorView.hidesWhenStopped = true
         imageView.image = item.image
+        imageView.contentMode = .scaleAspectFill
         imageLog        = item
         indicatorView.stopAnimating()
     }
