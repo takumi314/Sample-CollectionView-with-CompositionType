@@ -19,12 +19,21 @@ extension Persistable where Self: UserDefaults {
     // Only declares for UserDefault
 }
 
+struct UserDefaultsKey {
+    static let log = "IMAGE_LOG"
+}
+
 extension UserDefaults: Persistable {
     func save<T>(_ data: T) {
-        self.set(data, forKey: "IMAGE_LOG")
+        let archivedData = NSKeyedArchiver.archivedData(withRootObject: data)
+        self.set(archivedData, forKey: UserDefaultsKey.log)
     }
     func load<T>() -> T? {
-        return object(forKey: "IMAGE_LOG") as? T
+        guard let archivedData = object(forKey: UserDefaultsKey.log) as? Data else {
+            print("No data in UserDefaults")
+            return nil
+        }
+        return NSKeyedUnarchiver.unarchiveObject(with: archivedData) as? T
     }
 
 }

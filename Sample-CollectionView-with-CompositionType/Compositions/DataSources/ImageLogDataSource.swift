@@ -55,25 +55,27 @@ extension ImageLogDataSource: DataSourcing {
         self.imageLogs = items
     }
 
+    func log(at index: Int) -> ImageLog {
+        return imageLogs[index]
+    }
+
     func deleteAll() {
         imageLogs.removeAll()
     }
 
     func delete(at index: Int) {
         let log = imageLogs[index]
-        let url = log.imageData.imageData
-        imageLogs.remove(at: index)
-        try! FileManager.default.removeItem(at: url)
-
-        var items = [ImageData]()
-        let store = DataStore<Data>(UserDefaults.standard)
-        if let data = store.load() {
-            items = NSKeyedUnarchiver.unarchiveObject(with: data) as! [ImageData]
+        let url = log.imageData.fileURL
+        let manager = FileManager.default
+        if manager.isDeletableFile(atPath: url.absoluteString) {
+            try! manager.removeItem(at: url)
         }
-        items.remove(at: index)
-
-        let data = NSKeyedArchiver.archivedData(withRootObject: items)
-        store.save(data)
+        let store = DataStore<[ImageLog]>(UserDefaults.standard)
+        if var items = store.load() {
+            items.remove(at: index)
+            store.save(items)
+            imageLogs.remove(at: index)
+        }
     }
 
 }
