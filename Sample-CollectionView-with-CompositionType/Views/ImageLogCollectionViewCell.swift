@@ -28,6 +28,8 @@ class ImageLogCollectionViewCell: UICollectionViewCell {
     private var longPressBatch: ActionBatch<IndexPath>?
     private var tapBatch: ActionBatch<IndexPath>?
 
+    var imageLog: ImageLog?
+
     // MARK: - Initializer
 
     override func awakeFromNib() {
