@@ -14,6 +14,7 @@ class FirstViewController: UIViewController {
     private var picker: ImagePickerViewControllerDelegate?
 
     private var imageDataSource = ImageLogDataSource([])
+    private var pinterestiveTransitionDelegate: PinterestiveAnimationController?
 
     // MARK: - Life cycle
 
@@ -49,6 +50,19 @@ class FirstViewController: UIViewController {
         imageDataSource.previewAction = { [unowned self](indexPath) in
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? ImageLogCollectionViewCell else { return }
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
+            let position = CGPoint(x: cell.frame.origin.x - self.collectionView.contentOffset.x,
+                                   y: cell.frame.origin.y - self.collectionView.contentOffset.y + UIApplication.shared.statusBarFrame.size.height)
+
+            self.pinterestiveTransitionDelegate
+                = PinterestiveAnimationController(
+                    image: cell.imageView.image!,
+                    size: cell.frame.size,
+                    position: position,
+                    url: (cell.imageLog?.imageData.fileURL)!,
+                    cell: cell,
+                    isPresent: true
+            )
+            vc.transitioningDelegate = self.pinterestiveTransitionDelegate
             self.present(vc, animated: true, completion: nil)
         }
 
