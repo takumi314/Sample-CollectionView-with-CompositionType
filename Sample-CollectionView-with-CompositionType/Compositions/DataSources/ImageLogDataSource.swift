@@ -11,6 +11,7 @@ import UIKit
 class ImageLogDataSource: NSObject, UICollectionViewDataSource {
 
     var deletingAction: ((IndexPath) -> ())?
+    var previewAction: ((IndexPath) -> ())?
 
     private var imageLogs = [ImageLog]()
 
@@ -37,6 +38,13 @@ class ImageLogDataSource: NSObject, UICollectionViewDataSource {
             batch: ActionBatch(input: indexPath,
                                gestureAction: { [weak self] (indexPath) in
                                 guard let action = self?.deletingAction else { return }
+                                action(indexPath)
+            })
+        )
+        cell.willRecognizeTap(
+            batch: ActionBatch(input: indexPath,
+                               gestureAction: { [weak self] (indexPath) in
+                                guard let action = self?.previewAction else { return }
                                 action(indexPath)
             })
         )

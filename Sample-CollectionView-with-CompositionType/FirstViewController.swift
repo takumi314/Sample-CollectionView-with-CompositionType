@@ -46,6 +46,10 @@ class FirstViewController: UIViewController {
                          completion: nil)
         }
 
+        imageDataSource.previewAction = { [unowned self](indexPath) in
+            guard let cell = self.collectionView.cellForItem(at: indexPath) as? ImageLogCollectionViewCell else { return }
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
+            self.present(vc, animated: true, completion: nil)
         }
 
         let items = fetch(DataOf: ImageLog.self)
