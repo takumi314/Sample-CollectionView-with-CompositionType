@@ -17,6 +17,10 @@ class ImageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let effectView = UIVisualEffectView(frame: view.frame)
+        effectView.effect = UIBlurEffect(style: .prominent)
+        view.insertSubview(effectView, at: 0)
+
     }
 
     override func didReceiveMemoryWarning() {
