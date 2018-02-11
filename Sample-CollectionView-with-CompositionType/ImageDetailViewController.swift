@@ -10,6 +10,7 @@ import UIKit
 
 class ImageDetailViewController: UIViewController {
 
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
@@ -23,6 +24,9 @@ class ImageDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onExit(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
