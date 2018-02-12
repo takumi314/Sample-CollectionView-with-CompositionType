@@ -34,12 +34,15 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-
-        guard let _ = transitionContext.viewController(forKey: .from) else {
-            transitionContext.cancelInteractiveTransition()
-            return
+        if isPresent {
+            presentTransition(transitionContext: transitionContext)
+        } else {
+            dissmissalTransition(transitionContext: transitionContext)
         }
-        guard let toVC = transitionContext.viewController(forKey: .to) as? ImageDetailViewController else {
+    }
+
+    func presentTransition(transitionContext: UIViewControllerContextTransitioning) {
+        guard let secondVC = transitionContext.viewController(forKey: .to) as? ImageDetailViewController else {
             transitionContext.cancelInteractiveTransition()
             return
         }
@@ -51,58 +54,126 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
         }
 
         let animatingView = UIImageView(image: image)
-        animatingView.frame = CGRect(x: imagePosition.x,
-                                     y: imagePosition.y,
-                                     width: cell.frame.size.width,
-                                     height: cell.frame.size.width)
-        animatingView.contentMode = .scaleAspectFill
-        animatingView.clipsToBounds = true
-        cell.isHidden = true
+        if isPresent {
+            animatingView.frame = CGRect(x: imagePosition.x,
+                                         y: imagePosition.y,
+                                         width: cell.frame.size.width,
+                                         height: cell.frame.size.width)
+            animatingView.contentMode = .scaleAspectFill
+            animatingView.clipsToBounds = true
+            cell.isHidden = true
+        } else {
+            animatingView.frame = secondVC.imageView.frame
+        }
 
         // set up ViewControoller state after transition
-        toVC.view.frame = transitionContext.finalFrame(for: toVC)
-        toVC.view.alpha = 0.0
-        toVC.imageView.image = cell.imageLog?.imageData.image
-        toVC.imageView.contentMode = .scaleAspectFill
-        toVC.imageView.clipsToBounds = true
-        toVC.imageView.isHidden = true
-        toVC.modalView.isHidden = true
-        toVC.modalView.isOpaque = true
-        toVC.button.isHidden = true
-        print(toVC.imageView.debugDescription)
+        secondVC.view.frame = transitionContext.finalFrame(for: secondVC)
+        secondVC.view.alpha = 0.0
+        secondVC.imageView.image = cell.imageLog?.imageData.image
+        secondVC.imageView.contentMode = .scaleAspectFill
+        secondVC.imageView.clipsToBounds = true
+        secondVC.imageView.isHidden = true
+        secondVC.modalView.isHidden = true
+        secondVC.modalView.isOpaque = true
+        secondVC.button.isHidden = true
+        print(secondVC.imageView.debugDescription)
 
-        containerView.addSubview(toVC.view)
+        containerView.addSubview(secondVC.view)
         containerView.addSubview(animatingView)
 
         let duration = self.transitionDuration(using: transitionContext)
         UIView.animate(
             withDuration: duration,
             animations: {
-                toVC.view.alpha = 1.0
-                toVC.modalView.isOpaque = false
+                secondVC.view.alpha = 1.0
+                secondVC.modalView.isOpaque = false
 
                 let size = UIScreen.main.bounds
                 var width = size.width - 32
                 var height = width * 3 * 0.25
-                var x: CGFloat = (size.width - width) * 0.5
-                var y = (toVC.view.frame.height - 60 - height) * 0.5
+                var x = (size.width - width) * 0.5
+                var y = (secondVC.view.frame.height - 60 - height) * 0.5
                 if size.width > size.height {
                     height = size.height - 50
                     width = height * 4 / 3
                     y = (size.height - height) * 0.5
                     x = (size.width - width) * 0.5
                 }
+
                 animatingView.frame = CGRect(x: x, y: y, width: width, height: height)
                 print(animatingView.frame)
-                print(toVC.imageView.debugDescription)
+                print(secondVC.imageView.debugDescription)
         },
             completion: { [unowned self](isCompleted: Bool) in
-                toVC.view.isHidden = false
-                toVC.modalView.isHidden = false
-                toVC.imageView.isHidden = false
-                toVC.button.isHidden = false
+                secondVC.view.isHidden = false
+                secondVC.modalView.isHidden = false
+                secondVC.imageView.isHidden = false
+                secondVC.button.isHidden = false
 
-                print(toVC.imageView.debugDescription)
+                print(secondVC.imageView.debugDescription)
+
+                self.cell.isHidden = false
+                self.cell.imageView.isHidden = false
+                animatingView.removeFromSuperview()
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        })
+
+    }
+
+    func  dissmissalTransition(transitionContext: UIViewControllerContextTransitioning) {
+        guard let firstVC = transitionContext.viewController(forKey: .from) else {
+            transitionContext.cancelInteractiveTransition()
+            return
+        }
+        guard let secondVC = transitionContext.viewController(forKey: .to) as? ImageDetailViewController else {
+            transitionContext.cancelInteractiveTransition()
+            return
+        }
+        let containerView = transitionContext.containerView
+
+        guard let image = cell.imageLog?.image else {
+            transitionContext.cancelInteractiveTransition()
+            return
+        }
+
+        guard let animatingView = secondVC.imageView.snapshotView(afterScreenUpdates: false) else {
+            transitionContext.completeTransition(true)
+            return
+        }
+        animatingView.frame = containerView.convert(secondVC.imageView.frame, from: secondVC.imageView.superview!)
+
+        secondVC.view.isHidden = true
+
+        cell.imageView.isHidden = true
+
+        firstVC.view.frame = transitionContext.finalFrame(for: firstVC)
+
+        containerView.insertSubview(firstVC.view, belowSubview: secondVC.view)
+        containerView.addSubview(animatingView)
+
+        let duration = self.transitionDuration(using: transitionContext)
+        UIView.animate(
+            withDuration: duration,
+            animations: {
+                secondVC.view.alpha = 0
+                secondVC.modalView.isOpaque = false
+
+                let x = self.imagePosition.x
+                let y = self.imagePosition.y
+                let width = self.cell.frame.size.width
+                let height = self.cell.frame.size.height
+
+                animatingView.frame = CGRect(x: x, y: y, width: width, height: height)
+                print(animatingView.frame)
+                print(secondVC.imageView.debugDescription)
+        },
+            completion: { [unowned self](isCompleted: Bool) in
+                secondVC.view.isHidden = false
+                secondVC.modalView.isHidden = false
+                secondVC.imageView.isHidden = false
+                secondVC.button.isHidden = false
+
+                print(secondVC.imageView.debugDescription)
 
                 self.cell.isHidden = false
                 self.cell.imageView.isHidden = false
