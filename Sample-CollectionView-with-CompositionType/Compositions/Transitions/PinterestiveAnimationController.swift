@@ -12,19 +12,13 @@ let PINTERESTIVE_ANIMATION_DURATION = 0.7
 
 class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
 
-    let image: UIImage
-    let imageSize: CGSize
     let imagePosition: CGPoint
-    let imageURL: URL
     let cell: ImageLogCollectionViewCell
 
     var isPresent: Bool
 
-    init(image: UIImage, size: CGSize, position: CGPoint, url :URL, cell: ImageLogCollectionViewCell, isPresent: Bool) {
-        self.image = image
-        self.imageSize = size
+    init(position: CGPoint, cell: ImageLogCollectionViewCell, isPresent: Bool) {
         self.imagePosition = position
-        self.imageURL = url
         self.cell = cell
         self.isPresent = isPresent
     }

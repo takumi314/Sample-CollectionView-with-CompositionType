@@ -55,10 +55,7 @@ class FirstViewController: UIViewController {
 
             self.pinterestiveTransitionDelegate
                 = PinterestiveAnimationController(
-                    image: cell.imageView.image!,
-                    size: cell.frame.size,
                     position: position,
-                    url: (cell.imageLog?.imageData.fileURL)!,
                     cell: cell,
                     isPresent: true
             )
