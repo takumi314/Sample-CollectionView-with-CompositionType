@@ -68,7 +68,6 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
         secondVC.imageView.clipsToBounds = true
         secondVC.imageView.isHidden = true
         secondVC.modalView.isHidden = true
-        secondVC.modalView.isOpaque = true
         secondVC.button.isHidden = true
         print(secondVC.imageView.debugDescription)
 
@@ -80,7 +79,6 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
             withDuration: duration,
             animations: {
                 secondVC.view.alpha = 1.0
-                secondVC.modalView.isOpaque = false
 
                 let size = UIScreen.main.bounds
                 var width = size.width - 32
