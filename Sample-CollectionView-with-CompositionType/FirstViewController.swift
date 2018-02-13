@@ -14,6 +14,7 @@ class FirstViewController: UIViewController {
     private var picker: ImagePickerViewControllerDelegate?
 
     private var imageDataSource = ImageLogDataSource([])
+    private var pinterestiveTransitionDelegate: PinterestiveAnimationController?
 
     // MARK: - Life cycle
 
@@ -46,17 +47,28 @@ class FirstViewController: UIViewController {
                          completion: nil)
         }
 
-        let store = DataStore<Data>(UserDefaults.standard)
-        if let data = store.load() {
-            if let imageData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ImageData] {
-                let items = imageData.map({ ImageLog($0) })
-                render(items)
-            }
+        imageDataSource.previewAction = { [unowned self](indexPath) in
+            guard let cell = self.collectionView.cellForItem(at: indexPath) as? ImageLogCollectionViewCell else { return }
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImageDetailViewController") as! ImageDetailViewController
+            let position = CGPoint(x: cell.frame.origin.x - self.collectionView.contentOffset.x,
+                                   y: cell.frame.origin.y - self.collectionView.contentOffset.y + UIApplication.shared.statusBarFrame.size.height)
+
+            self.pinterestiveTransitionDelegate
+                = PinterestiveAnimationController(
+                    position: position,
+                    cell: cell,
+                    isPresent: true
+            )
+            vc.transitioningDelegate = self.pinterestiveTransitionDelegate
+            self.present(vc, animated: true, completion: nil)
         }
 
+        let items = fetch(DataOf: ImageLog.self)
+        render(items)
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
         super.viewWillAppear(animated)
 
         if collectionView.subviews.filter({ $0 is UIButton }).isEmpty {
@@ -174,7 +186,7 @@ class FirstViewController: UIViewController {
                                style: .default,
                                handler: { [weak self]_ in
                                 let name = alert.textFields?.first?.text ?? "No name"
-                                self?.update(ImageData(image: image, name: name, date: Date()) )
+                                self?.update(ImageLog(image: image, name: name, date: Date()) )
         })
         alert.addAction(ok)
         alert.addTextField(configurationHandler: nil)
@@ -188,22 +200,15 @@ class FirstViewController: UIViewController {
         collectionView.reloadData()
     }
 
-    private func update(_ data: ImageData){
-        var items = [ImageData]()
-        let store = DataStore<Data>(UserDefaults.standard)
-        if let all = store.load() {
-            if let imageData = NSKeyedUnarchiver.unarchiveObject(with: all) as? [ImageData] {
-                items = imageData
-            }
-        }
+    private func update(_ item: ImageLog){
+        var items = fetch(DataOf: ImageLog.self)
 
         // save
-        items.append(data)
-        store.save(NSKeyedArchiver.archivedData(withRootObject: items))
+        items.append(item)
+        push(items: items)
 
         // update view
-        let item = ImageLog(data)
-        imageDataSource.set(item)
+        imageDataSource.set(items)
         collectionView.reloadData()
     }
 
@@ -214,6 +219,16 @@ class FirstViewController: UIViewController {
         }, completion: { [unowned self] _ in
             self.collectionView.reloadData()
         })
+    }
+
+    func fetch<T>(DataOf type: T.Type) -> [T] {
+        let store = DataStore<[T]>(UserDefaults.standard)
+        return store.load() ?? []
+    }
+
+    func push<T>(items: [T]) {
+        let store = DataStore<[T]>(UserDefaults.standard)
+        store.save(items)
     }
 
 }

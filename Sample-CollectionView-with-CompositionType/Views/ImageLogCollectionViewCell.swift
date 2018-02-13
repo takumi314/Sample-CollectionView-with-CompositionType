@@ -25,7 +25,10 @@ class ImageLogCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Property
 
-    private var batch: ActionBatch<IndexPath>?
+    private var longPressBatch: ActionBatch<IndexPath>?
+    private var tapBatch: ActionBatch<IndexPath>?
+
+    var imageLog: ImageLog?
 
     // MARK: - Initializer
 
@@ -36,14 +39,25 @@ class ImageLogCollectionViewCell: UICollectionViewCell {
     }
 
     func willRecognizeLognPress(batch: ActionBatch<IndexPath>) {
-        self.batch = batch
+        self.longPressBatch = batch
         self.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didRecognize)))
     }
+
+    func willRecognizeTap(batch: ActionBatch<IndexPath>) {
+        self.tapBatch = batch
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didShortTap)))
+    }
+
 
     // MARK: - Private
 
     @objc private func didRecognize(_ longPress: UILongPressGestureRecognizer) {
-        batch?.execute()
+        self.isHighlighted = true
+        longPressBatch?.execute()
+    }
+
+    @objc private func didShortTap(_ tap: UITapGestureRecognizer) {
+        tapBatch?.execute()
     }
 
 }
