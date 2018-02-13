@@ -48,17 +48,13 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
         }
 
         let animatingView = UIImageView(image: image)
-        if isPresent {
-            animatingView.frame = CGRect(x: imagePosition.x,
-                                         y: imagePosition.y,
-                                         width: cell.frame.size.width,
-                                         height: cell.frame.size.width)
-            animatingView.contentMode = .scaleAspectFill
-            animatingView.clipsToBounds = true
-            cell.isHidden = true
-        } else {
-            animatingView.frame = secondVC.imageView.frame
-        }
+        animatingView.frame = CGRect(x: imagePosition.x,
+                                     y: imagePosition.y,
+                                     width: cell.frame.size.width,
+                                     height: cell.frame.size.width)
+        animatingView.contentMode = .scaleAspectFill
+        animatingView.clipsToBounds = true
+        cell.isHidden = true
 
         // set up ViewControoller state after transition
         secondVC.view.frame = transitionContext.finalFrame(for: secondVC)
