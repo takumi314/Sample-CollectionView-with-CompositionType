@@ -175,7 +175,7 @@ extension PinterestiveAnimationController: UIViewControllerTransitioningDelegate
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresent = false
-        return nil
+        return self
     }
 
 }
