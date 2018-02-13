@@ -109,32 +109,31 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
     }
 
     func  dissmissalTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard let firstVC = transitionContext.viewController(forKey: .from) else {
-            transitionContext.cancelInteractiveTransition()
+        guard let firstVC = transitionContext.viewController(forKey: .from) as? ImageDetailViewController else {
+            transitionContext.completeTransition(true)
             return
         }
-        guard let secondVC = transitionContext.viewController(forKey: .to) as? ImageDetailViewController else {
-            transitionContext.cancelInteractiveTransition()
+        guard let secondVC = transitionContext.viewController(forKey: .to) else {
+            transitionContext.completeTransition(true)
             return
         }
         let containerView = transitionContext.containerView
 
-        guard let image = cell.imageLog?.image else {
-            transitionContext.cancelInteractiveTransition()
-            return
-        }
-
-        guard let animatingView = secondVC.imageView.snapshotView(afterScreenUpdates: false) else {
+        guard let animatingView = firstVC.imageView.snapshotView(afterScreenUpdates: false) else {
             transitionContext.completeTransition(true)
             return
         }
-        animatingView.frame = containerView.convert(secondVC.imageView.frame, from: secondVC.imageView.superview!)
+        animatingView.contentMode = .scaleAspectFill
+        animatingView.clipsToBounds = true
+        animatingView.frame = containerView.convert(firstVC.imageView.frame, from: firstVC.imageView.superview!)
 
-        secondVC.view.isHidden = true
+        firstVC.view.isHidden = true
 
+        cell.isHidden = true
         cell.imageView.isHidden = true
 
-        firstVC.view.frame = transitionContext.finalFrame(for: firstVC)
+        secondVC.view.frame = transitionContext.finalFrame(for: secondVC)
+        secondVC.view.isHidden = false
 
         containerView.insertSubview(firstVC.view, belowSubview: secondVC.view)
         containerView.addSubview(animatingView)
@@ -143,8 +142,7 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
         UIView.animate(
             withDuration: duration,
             animations: {
-                secondVC.view.alpha = 0
-                secondVC.modalView.isOpaque = false
+                firstVC.view.alpha = 0
 
                 let x = self.imagePosition.x
                 let y = self.imagePosition.y
@@ -153,15 +151,10 @@ class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransit
 
                 animatingView.frame = CGRect(x: x, y: y, width: width, height: height)
                 print(animatingView.frame)
-                print(secondVC.imageView.debugDescription)
+                print(firstVC.imageView.debugDescription)
         },
             completion: { [unowned self](isCompleted: Bool) in
-                secondVC.view.isHidden = false
-                secondVC.modalView.isHidden = false
-                secondVC.imageView.isHidden = false
-                secondVC.button.isHidden = false
-
-                print(secondVC.imageView.debugDescription)
+                print(firstVC.imageView.debugDescription)
 
                 self.cell.isHidden = false
                 self.cell.imageView.isHidden = false
