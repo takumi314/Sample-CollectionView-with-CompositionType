@@ -8,7 +8,7 @@
 
 import UIKit
 
-let PINTERESTIVE_ANIMATION_DURATION = 0.7
+let PINTERESTIVE_ANIMATION_DURATION = 0.4
 
 class PinterestiveAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
 
